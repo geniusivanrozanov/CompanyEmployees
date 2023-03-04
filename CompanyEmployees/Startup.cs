@@ -27,6 +27,7 @@ namespace CompanyEmployees
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureCors();
+            services.ConfigureIISIntegration();
 
             services.AddControllers();
         }
