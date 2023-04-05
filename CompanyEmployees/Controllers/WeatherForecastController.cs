@@ -27,16 +27,13 @@ namespace CompanyEmployees.Controllers
         [HttpGet]
         public async Task<IEnumerable<Company>> Get()
         {
-            var companiesTask = _repositoryManager.Company
-                .FindAll(false)
-                .ToListAsync();
+            var companies = _repositoryManager.Company
+                .GetAllCompanies(false);
 
             _logger.LogInfo("Here is info message from our values controller.");
             _logger.LogDebug("Here is debug message from our values controller.");
             _logger.LogWarn("Here is warn message from our values controller.");
             _logger.LogError("Here is an error message from our values controller.");
-
-            var companies = await companiesTask;
 
             return companies;
         }

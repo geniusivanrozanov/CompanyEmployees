@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Contracts
 {
-    public interface ICompanyRepository : IRepositoryBase<Company>
+    public interface ICompanyRepository
     {
+        IEnumerable<Company> GetAllCompanies(bool trackChanges);
     }
 }
