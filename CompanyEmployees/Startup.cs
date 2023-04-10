@@ -37,7 +37,11 @@ namespace CompanyEmployees
             services.ConfigureSqlContext(Configuration);
             services.ConfigureRepositoryManager();
 
-            services.AddControllers();
+            services.AddControllers(config =>
+            {
+                config.RespectBrowserAcceptHeader = true;
+                config.ReturnHttpNotAcceptable = true;
+            }).AddXmlDataContractSerializerFormatters();
             services.AddAutoMapper(typeof(Startup));
         }
 
